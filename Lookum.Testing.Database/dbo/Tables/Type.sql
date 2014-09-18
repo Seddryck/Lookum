@@ -1,0 +1,13 @@
+CREATE TABLE [dbo].[CategoryType](
+	[Id] [int] NOT NULL,
+	[Value] [varchar](255) NOT NULL,
+	[Description] [varchar](100) NULL,
+ CONSTRAINT [PK_CategoryType] PRIMARY KEY NONCLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+
