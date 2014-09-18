@@ -1,0 +1,14 @@
+CREATE TABLE [dbo].[IsoLanguage](
+	[Id] [int] NOT NULL,
+	[Code] [nvarchar](2) NOT NULL,
+	[IsDefault] [bit] NOT NULL,
+	[Name] [nvarchar](30) NULL,
+ CONSTRAINT [PK_IsoLanguage] PRIMARY KEY NONCLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+
