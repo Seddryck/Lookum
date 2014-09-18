@@ -47,6 +47,8 @@
     <Compile Include="Lookup\BaseLookup.cs" />
     <Compile Include="Lookup\EnumDescriptionLookup.cs" />
     <Compile Include="Lookup\EnumLookup.cs" />
+    <Compile Include="Lookup\ILookup.cs" />
+    <Compile Include="Lookup\LookupContainer.cs" />
     <Compile Include="Lookup\NotLoadedLookupException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

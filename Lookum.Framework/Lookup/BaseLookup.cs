@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Lookum.Framework.Lookup
 {
-    public abstract class BaseLookup<K, V>
+    public abstract class BaseLookup<K, V> : ILookup
     {
         public bool IsLoaded { get; protected set; }
 
@@ -78,6 +78,11 @@ namespace Lookum.Framework.Lookup
                 return Map[id];
 
             return NonMatchBehavior(id);
+        }
+
+        public int Count()
+        {
+            return Map.Count;
         }
     }
 }
