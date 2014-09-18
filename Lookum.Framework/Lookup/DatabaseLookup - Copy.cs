@@ -15,11 +15,6 @@ namespace Lookum.Framework.Lookup
         protected string ConnectionString { get; set; }
         protected int CommandTimeOut { get; set; } 
 
-        public int Count()
-        {
-            return Map.Count;
-        }
-
         protected DatabaseLookup()
             : base()
         { }
