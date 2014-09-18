@@ -21,7 +21,7 @@ namespace Lookum.Framework.Testing.Lookup
         }
 
         
-        public enum Status
+        public enum Status : short
         {
             [System.ComponentModel.Description("Currently waiting that you do something")]
             Waiting = 0,
@@ -37,7 +37,7 @@ namespace Lookum.Framework.Testing.Lookup
                 
             }
         }
-        public class StatusLookup : EnumDescriptionLookup<Status, int>
+        public class StatusLookup : EnumDescriptionLookup<Status, short>
         {
             public StatusLookup()
                 : base("Unknown")
