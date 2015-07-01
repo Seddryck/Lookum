@@ -62,11 +62,22 @@ namespace Lookum.Framework.Lookup
                     {
                         //Mapping of the two fields to a map container.
                         var id = (K)dr.GetValue(0);
-                        var value = (V)dr.GetValue(1);
+                        var values = new List<object>();
+                        for (int i = 1; i < dr.FieldCount; i++)
+                            values.Add(dr.GetValue(i));
+                        var value = BuildValue(values.ToArray());
                         Map.Add(id, value);
                     }
                 }
             }
+        }
+
+        protected virtual V BuildValue(object[] items)
+        {
+            if (items.Count() == 1)
+                return (V)items[0];
+
+            throw new ArgumentException("By default, the framework is expecting one column for the value. If you want to return an object in place of a primitive for the value, you need to override the method 'BuildValue' of your database lookup.");
         }
 
         protected IDbCommand BuildCommand(SqlConnection conn, int commandTimeout)
