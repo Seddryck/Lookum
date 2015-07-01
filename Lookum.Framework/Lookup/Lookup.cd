@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Lookum.Framework.Lookup.BaseLookup&lt;K, V&gt;" Collapsed="true">
+    <Position X="4" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAggAAABAAAAAIAAAAAAQCAAAAAQQAAAAAAAAAAAA=</HashCode>
+      <FileName>Lookup\BaseLookup.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Lookum.Framework.Lookup.DatabaseIncrementalLookup&lt;K, V&gt;" Collapsed="true">
+    <Position X="4" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAAEEAAACAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>Lookup\DatabaseIncrementalLookup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lookum.Framework.Lookup.DatabaseLookup&lt;K, V&gt;" Collapsed="true">
+    <Position X="4" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAoAAAAAAAAAAAAAEAAgACAAAAAAAAACgAAAAAAAA=</HashCode>
+      <FileName>Lookup\DatabaseLookup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lookum.Framework.Lookup.EnumDescriptionLookup&lt;T, K&gt;" Collapsed="true">
+    <Position X="1.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Lookup\EnumDescriptionLookup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lookum.Framework.Lookup.EnumLookup&lt;T, K&gt;" Collapsed="true">
+    <Position X="1.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Lookup\EnumLookup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Lookum.Framework.Lookup.ILookup" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Lookup\ILookup.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
