@@ -17,7 +17,7 @@ namespace Lookum.Framework.Testing.Lookup
             public CountryLookup()
                 : base("Unknown")
             {
-                ConnectionString = @"Data Source=.\sql2014;Initial Catalog=Lookum_Testing;Integrated Security=true";
+                ConnectionString = @"Data Source=(localdb)\ProjectsV12;Initial Catalog=Lookum.Testing.Database;Integrated Security=True;";
                 CommandTimeOut = 300;
             }
 
