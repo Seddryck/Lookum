@@ -11,6 +11,8 @@ Note that all the tests are not executed on this environment due to limitations 
 
 ## HelloWorld sample ##
 
+To create a new lookup class, you need to inherit from one of the base class of the framework. If your lookup must be performed on resources stored in a database, use the DatabaseLookup class and specify the types of the key and value.
+
 ````csharp
 public class CountryLookup : DatabaseLookup<string, string>
 {
@@ -23,12 +25,19 @@ public class CountryLookup : DatabaseLookup<string, string>
 
     protected override IDbCommand BuildCommand()
     {
-		var sql = "select [CategoryValue].[Key], [CategoryValueTranslation].[Value] from [CategoryType] inner join [CategoryValue] on [CategoryValue].[CategoryTypeId] = [CategoryType].[Id] inner join [CategoryValueTranslation] on [CategoryValueTranslation].[CategoryValueId] = [CategoryValue].[Id] inner join [IsoLanguage] on [IsoLanguage].[Id] = [CategoryValueTranslation].[IsoLanguageId] where [IsoLanguage].[IsDefault]=1 and [CategoryType].[Value]=@Category";
+		var sql = "select [KeyField], [ValueField] from Table;";
 		var command = new SqlCommand();
 		command.CommandText = sql;
-		command.Parameters.Add(new SqlParameter("Category", "Country"));
 		return command;
     }
 }
 ````
+After the defintion of the class of the lookup, you can use it in your code by just calling once the method "Load" and perform how many "match" that you want.
 
+````csharp
+var countryLookup = new CountryLookup();
+countryLookup.Load();
+var usa = countryLookup.Match("US");
+var belgium = countryLookup.Match("BE");
+var france = countryLookup.Match("FR");
+````
