@@ -29,7 +29,7 @@ namespace Lookum.Framework.Testing.Lookup
             public CurrencyLookup()
                 : base(CurrencyLanguage.Unknown)
             {
-                ConnectionString = @"Data Source=(localdb)\ProjectsV12;Initial Catalog=Lookum.Testing.Database;Integrated Security=True;";
+                ConnectionString = ConnectionStringReader.GetSqlClient();
                 CommandTimeOut = 300;
             }
 

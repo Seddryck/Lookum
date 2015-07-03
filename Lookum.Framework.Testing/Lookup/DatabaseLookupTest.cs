@@ -17,7 +17,7 @@ namespace Lookum.Framework.Testing.Lookup
             public CountryLookup()
                 : base(true)
             {
-                ConnectionString=@"Data Source=(localdb)\ProjectsV12;Initial Catalog=Lookum.Testing.Database;Integrated Security=True;";
+                ConnectionString=ConnectionStringReader.GetSqlClient();
                 CommandTimeOut = 300;
             }
 
@@ -39,7 +39,7 @@ namespace Lookum.Framework.Testing.Lookup
                 : base("Unknown")
             {
                 this.isoLanguage = isoLanguage;
-                ConnectionString = @"Data Source=(localdb)\ProjectsV12;Initial Catalog=Lookum.Testing.Database;Integrated Security=True;";
+                ConnectionString = ConnectionStringReader.GetSqlClient();
                 CommandTimeOut = 300;
             }
 
@@ -60,7 +60,7 @@ namespace Lookum.Framework.Testing.Lookup
             public CurrencyDefaultLookup()
                 : base((k) => k.ToLower().Substring(0, Math.Min(k.Length, 2)))
             {
-                ConnectionString = @"Data Source=(localdb)\ProjectsV12;Initial Catalog=Lookum.Testing.Database;Integrated Security=True;";
+                ConnectionString = ConnectionStringReader.GetSqlClient();
                 CommandTimeOut = 300;
             }
 
