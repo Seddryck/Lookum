@@ -60,13 +60,13 @@
     <None Include="ConnectionString.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="ConnectionString.appVeyor.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <MyOptionalItems Include="ConnectionString.user.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </MyOptionalItems>
-    <MyOptionalItems Include="ConnectionString.appVeyor.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </MyOptionalItems>
   </ItemGroup>
