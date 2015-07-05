@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/10/nuspec.xsd">
+  <metadata>
+    <id>Lookum</id>
+    <version>$version$</version>
+    <title>Lookum</title>
+    <authors>Cédric L. Charlier</authors>
+    <owners>Cédric L. Charlier</owners>
+    <licenseUrl>http://github.com/Seddryck/Lookum/blob/master/LICENSE</licenseUrl>
+    <projectUrl>http://github.com/Seddryck/Lookum</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Develop ETL with .Net</description>
+    <releaseNotes>First beta release of Lookum</releaseNotes>
+    <copyright>Copyright 2014-2015</copyright>
+    <tags>ETL</tags>
+  </metadata>
+</package>

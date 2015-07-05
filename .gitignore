@@ -182,3 +182,8 @@ UpgradeLog*.htm
 
 # Microsoft Fakes
 FakesAssemblies/
+
+# Packages build
+*.compiled.nuspec
+.nupkg/
+.package/
