@@ -10,6 +10,7 @@ Post-Deployment Script Template
 --------------------------------------------------------------------------------------
 */
 truncate table [CategoryValueTranslation];
+truncate table [MultiKeyValue];
 delete from [CategoryValue];
 delete from  [CategoryType];
 delete from  [IsoLanguage];
@@ -46,3 +47,10 @@ insert into [CategoryValueTranslation] values(4, 2, 'Pays-Bas');
 insert into [CategoryValueTranslation] values(5, 2, 'Allemagne');
 insert into [CategoryValueTranslation] values(6, 2, 'Dollar américain');
 insert into [CategoryValueTranslation] values(7, 2, 'Euro');
+
+insert into [MultiKeyValue] values('Training', 'Softskills', 'Soft skills training', 16);
+insert into [MultiKeyValue] values('Training', '.Net', '.Net training', 16);
+insert into [MultiKeyValue] values('Training', 'SQL', 'SQL training', 40);
+insert into [MultiKeyValue] values('Coaching', 'Net', '.Net coaching', 40);
+insert into [MultiKeyValue] values('Coaching', 'SQL',  'SQL voaoching', 80);
+insert into [MultiKeyValue] values('Code review', '.Net',  '.Net vode review', 160);
