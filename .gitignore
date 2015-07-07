@@ -187,3 +187,4 @@ FakesAssemblies/
 *.compiled.nuspec
 .nupkg/
 .package/
+*.exe

@@ -9,11 +9,19 @@ Post-Deployment Script Template
                SELECT * FROM [$(TableName)]					
 --------------------------------------------------------------------------------------
 */
-insert into IsoLanguage values(1, 'en', 1, 'English');
-insert into IsoLanguage values(2, 'fr', 0, 'French');
+truncate table [CategoryValueTranslation];
+delete from [CategoryValue];
+delete from  [CategoryType];
+delete from  [IsoLanguage];
+
+
+insert into [IsoLanguage] values(1, 'en', 1, 'English');
+insert into [IsoLanguage] values(2, 'fr', 0, 'French');
+
 
 insert into [CategoryType] values(1, 'Country', 'List of countries');
 insert into [CategoryType] values(2, 'Currency', 'List of currencies');
+
 
 insert into [CategoryValue] values(1, 1, 'US');
 insert into [CategoryValue] values(2, 1, 'FR');
@@ -22,6 +30,7 @@ insert into [CategoryValue] values(4, 1, 'NL');
 insert into [CategoryValue] values(5, 1, 'GE');
 insert into [CategoryValue] values(6, 2, 'USD');
 insert into [CategoryValue] values(7, 2, 'EUR');
+
 
 insert into [CategoryValueTranslation] values(1, 1, 'United States of America');
 insert into [CategoryValueTranslation] values(2, 1, 'France');

@@ -59,6 +59,7 @@
     <Folder Include="Properties" />
     <Folder Include="dbo" />
     <Folder Include="dbo\Tables" />
+    <Folder Include="publish" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\IsoLanguage.sql" />
@@ -70,6 +71,6 @@
     <PostDeploy Include="PostDeployment.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="localdb.publish.xml" />
+    <None Include="publish\localdb.publish.xml" />
   </ItemGroup>
 </Project>
