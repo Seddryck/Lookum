@@ -43,6 +43,7 @@
       <Link>Properties\GlobalAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Lookup\DatabaseIncrementalLookup.cs" />
+    <Compile Include="Lookup\DatabaseInsertLookup.cs" />
     <Compile Include="Lookup\DatabaseLookup.cs" />
     <Compile Include="Lookup\BaseLookup.cs" />
     <Compile Include="Lookup\EnumDescriptionLookup.cs" />

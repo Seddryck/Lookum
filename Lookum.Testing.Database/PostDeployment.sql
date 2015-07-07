@@ -11,6 +11,7 @@ Post-Deployment Script Template
 */
 truncate table [CategoryValueTranslation];
 truncate table [MultiKeyValue];
+truncate table [State];
 delete from [CategoryValue];
 delete from  [CategoryType];
 delete from  [IsoLanguage];
@@ -54,3 +55,6 @@ insert into [MultiKeyValue] values('Training', 'SQL', 'SQL training', 40);
 insert into [MultiKeyValue] values('Coaching', 'Net', '.Net coaching', 40);
 insert into [MultiKeyValue] values('Coaching', 'SQL',  'SQL voaoching', 80);
 insert into [MultiKeyValue] values('Code review', '.Net',  '.Net vode review', 160);
+
+insert into [State] values('Started');
+insert into [State] values('Stopped');

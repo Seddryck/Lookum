@@ -16,7 +16,7 @@ namespace Lookum.Framework.Lookup
         /// <summary>
         /// Define the function to be executed when a key is requested but not found in the map.
         /// </summary>
-        protected Func<K, V> NonMatchBehavior { get; private set; }
+        protected Func<K, V> NonMatchBehavior { get; set; }
 
         protected BaseLookup()
         {
