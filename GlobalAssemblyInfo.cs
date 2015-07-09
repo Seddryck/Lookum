@@ -13,6 +13,6 @@ using System.Runtime.InteropServices;
 
 //Reference the testing class to ensure access to internal members
 [assembly: InternalsVisibleTo("Lookum.Framework.Testing")]
-[assembly: AssemblyVersion("0.8.0.*")]
-[assembly: AssemblyFileVersion("0.8.0")]
-[assembly: AssemblyInformationalVersion("0.8.0-BETA")]
+[assembly: AssemblyVersion("0.10.0.*")]
+[assembly: AssemblyFileVersion("0.10.0")]
+[assembly: AssemblyInformationalVersion("0.10.0-BETA")]
