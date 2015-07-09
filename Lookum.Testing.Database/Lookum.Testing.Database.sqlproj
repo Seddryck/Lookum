@@ -67,6 +67,7 @@
     <Build Include="dbo\Tables\Type.sql" />
     <Build Include="dbo\Tables\Value.sql" />
     <Build Include="dbo\Tables\MultiKeyValue.sql" />
+    <Build Include="dbo\Tables\State.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="PostDeployment.sql" />

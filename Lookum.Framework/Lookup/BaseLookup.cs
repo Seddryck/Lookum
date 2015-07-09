@@ -16,7 +16,7 @@ namespace Lookum.Framework.Lookup
         /// <summary>
         /// Define the function to be executed when a key is requested but not found in the map.
         /// </summary>
-        protected Func<K, V> NonMatchBehavior { get; private set; }
+        protected Func<K, V> NonMatchBehavior { get; set; }
 
         protected BaseLookup()
         {
@@ -58,6 +58,8 @@ namespace Lookum.Framework.Lookup
         /// <returns>The translated value. IF the key has not been found and the behaviour is set to return a default value then the default value will returned.</returns>
         public virtual void Load()
         {
+            if (IsLoaded)
+                throw new InvalidOperationException("The lookup has already been loaded. If you want to reload it, you should clear it first.");
             OnLoad();
             IsLoaded = true;
         }
@@ -83,6 +85,12 @@ namespace Lookum.Framework.Lookup
         public int Count()
         {
             return Map.Count;
+        }
+
+        public void Clear()
+        {
+            IsLoaded = false;
+            Map.Clear();
         }
     }
 }
