@@ -13,7 +13,7 @@ namespace Lookum.Framework.Testing.Lookup
     class DatabaseInsertLookupTest
     {
         [TearDown]
-        public void Dispose()
+        public void TearDown()
         {
             using (var conn = new SqlConnection())
             {
@@ -53,6 +53,28 @@ namespace Lookum.Framework.Testing.Lookup
             }
         }
 
+        public class StateBisLookup : StateLookup
+        {
+            public StateBisLookup()
+                : base()
+            {
+            }
+
+            protected override IDbCommand BuildInsertCommand(string value)
+            {
+                var sql = "insert into [state] values (@label); select SCOPE_IDENTITY() as int;";
+                var command = new SqlCommand();
+                command.CommandText = sql;
+                command.Parameters.Add(new SqlParameter("label", value));
+                return command;
+            }
+
+            protected override int BuildPrimitiveValue(object[] items)
+            {
+                return Convert.ToInt32(items[items.Length-1]);
+            }
+        }
+
         [Test]
         public void Match_ExistingKey_ReturnValue()
         {
@@ -82,6 +104,14 @@ namespace Lookum.Framework.Testing.Lookup
             var stateSecond = stateLookup.Match("Paused");
 
             Assert.That(stateFirst, Is.EqualTo(stateSecond));
+        }
+
+        [Test]
+        public void Match_InitiatlyNonExistingKeyWithBis_ReturnNewValue()
+        {
+            var stateLookup = new StateBisLookup();
+            stateLookup.Load();
+            Assert.DoesNotThrow(delegate { stateLookup.Match("Paused"); });
         }
     }
 }

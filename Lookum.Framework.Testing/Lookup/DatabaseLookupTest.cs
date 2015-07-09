@@ -31,6 +31,25 @@ namespace Lookum.Framework.Testing.Lookup
             }
         }
 
+        public class WrongCountryLookup : DatabaseLookup<string, int>
+        {
+            public WrongCountryLookup()
+                : base(true)
+            {
+                ConnectionString = ConnectionStringReader.GetSqlClient();
+                CommandTimeOut = 300;
+            }
+
+            protected override IDbCommand BuildCommand()
+            {
+                var sql = "select [CategoryValue].[Key], [CategoryValueTranslation].[Value] from [CategoryType] inner join [CategoryValue] on [CategoryValue].[CategoryTypeId] = [CategoryType].[Id] inner join [CategoryValueTranslation] on [CategoryValueTranslation].[CategoryValueId] = [CategoryValue].[Id] inner join [IsoLanguage] on [IsoLanguage].[Id] = [CategoryValueTranslation].[IsoLanguageId] where [IsoLanguage].[IsDefault]=1 and [CategoryType].[Value]=@Category";
+                var command = new SqlCommand();
+                command.CommandText = sql;
+                command.Parameters.Add(new SqlParameter("Category", "Country"));
+                return command;
+            }
+        }
+
         public class CurrencyLookup : DatabaseLookup<string, string>
         {
             private string isoLanguage;
@@ -132,6 +151,17 @@ namespace Lookum.Framework.Testing.Lookup
             var currency = currencyLookup.Match("XXX");
 
             Assert.That(currency, Is.EqualTo("xx"));
+        }
+
+        [Test]
+        public void Load_WrongTypeForPrimitive_ThrowCorrectexception()
+        {
+            var countryLookup = new WrongCountryLookup();
+            var ex = Assert.Throws<InvalidCastException>(delegate { countryLookup.Load(); });
+            Assert.That(ex.Message, Is.StringContaining("Int32"));
+            Assert.That(ex.Message, Is.StringContaining("String"));
+            Assert.That(ex.Message, Is.StringContaining("value"));
+            Console.WriteLine(ex.Message);
         }
     }
 }
