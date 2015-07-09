@@ -24,7 +24,8 @@ namespace Lookum.Framework.Lookup
                 using (var cmd = BuildInsertCommand(conn, CommandTimeOut, key))
                 {
                     conn.Open();
-                    var value = (V)cmd.ExecuteScalar();
+                    var item = cmd.ExecuteScalar();
+                    var value = BuildPrimitiveValue(new object[] {item});
                     Map.Add(key, value);
                     return value;
                 }

@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Reflection;
 using System.IO;
+using System.Diagnostics;
 
 
 namespace Lookum.Framework.Lookup
@@ -69,12 +70,12 @@ namespace Lookum.Framework.Lookup
 
                         //Mapping of the two fields to a map container.
                         if (IsPrimitive(typeof(K)))
-                            id = (K)dr.GetValue(0);
+                            id = BuildPrimitiveKey(items.ToArray());
                         else
                             id = BuildKey(items.ToArray());
 
                         if (IsPrimitive(typeof(V)))
-                            value = (V)dr.GetValue(dr.FieldCount-1);
+                            value = BuildPrimitiveValue(items.ToArray());
                         else
                             value = BuildValue(items.ToArray());
 
@@ -94,9 +95,41 @@ namespace Lookum.Framework.Lookup
             throw new ArgumentException("By default, Lookum is expecting a primitive for the key. If you want to return an object in place of a primitive for the value, you need to override the method 'BuildKey' of your database lookup.");
         }
 
+        private Z BuildPrimitive<Z>(object item)
+        {
+            try
+            {
+                return (Z)item;
+            }
+            catch (InvalidCastException ex)
+            {
+                var stackTrace = new StackTrace();
+                var primitiveRole = stackTrace.GetFrame(1).GetMethod().Name.Replace("BuildPrimitive", "").ToLower();
+
+                throw new InvalidCastException(
+                    String.Format(
+                            "The specified type for the {2} of the lookup ({0}) doesn't match with the type returned by the database ({1})"
+                            , typeof(Z).Name
+                            , item.GetType().Name
+                            , primitiveRole
+                            )
+                    , ex);
+            }
+        }
+
+        protected virtual K BuildPrimitiveKey(object[] items)
+        {
+            return BuildPrimitive<K>(items[0]);
+        }
+
         protected virtual V BuildValue(object[] items)
         {
             throw new ArgumentException("By default, Lookum is expecting a primitive for the value. If you want to return an object in place of a primitive for the value, you need to override the method 'BuildValue' of your database lookup.");
+        }
+
+        protected virtual V BuildPrimitiveValue(object[] items)
+        {
+            return BuildPrimitive<V>(items[items.Length-1]);
         }
 
         protected IDbCommand BuildCommand(SqlConnection conn, int commandTimeout)
