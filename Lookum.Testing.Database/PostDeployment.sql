@@ -29,7 +29,7 @@ insert into [CategoryValue] values(1, 1, 'US');
 insert into [CategoryValue] values(2, 1, 'FR');
 insert into [CategoryValue] values(3, 1, 'BE');
 insert into [CategoryValue] values(4, 1, 'NL');
-insert into [CategoryValue] values(5, 1, 'GE');
+insert into [CategoryValue] values(5, 1, 'DE');
 insert into [CategoryValue] values(6, 2, 'USD');
 insert into [CategoryValue] values(7, 2, 'EUR');
 
