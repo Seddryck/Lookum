@@ -79,6 +79,9 @@ namespace Lookum.Framework.Lookup
                         else
                             value = BuildValue(items.ToArray());
 
+                        if (Map.Keys.Contains(id))
+                            ManageDuplicateKey(id, value);                            
+
                         Map.Add(id, value);
                     }
                 }
@@ -161,6 +164,16 @@ namespace Lookum.Framework.Lookup
             }
 
             return content;
+        }
+
+        protected virtual void ManageDuplicateKey(K id, V value)
+        {
+            var msg = String.Format("The key '{0}' has already been added to the lookup and you're trying to add it a second time. The lookup currently contains {1} element{2}."
+                                                        , id
+                                                        , Map.Count()
+                                                        , Map.Count() > 1 ? "s" : string.Empty
+                                                    );
+            throw new InvalidOperationException(msg);
         }
     }
 }

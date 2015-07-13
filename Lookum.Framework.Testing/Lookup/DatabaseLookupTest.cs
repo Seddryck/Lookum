@@ -50,6 +50,22 @@ namespace Lookum.Framework.Testing.Lookup
             }
         }
 
+        public class DuplicateCountryLookup : CountryLookup
+        {
+            public DuplicateCountryLookup()
+                : base(){}
+           
+            protected override IDbCommand BuildCommand()
+            {
+                var sql = "select [CategoryValue].[Key], [CategoryValueTranslation].[Value] from [CategoryType] inner join [CategoryValue] on [CategoryValue].[CategoryTypeId] = [CategoryType].[Id] inner join [CategoryValueTranslation] on [CategoryValueTranslation].[CategoryValueId] = [CategoryValue].[Id] inner join [IsoLanguage] on [IsoLanguage].[Id] = [CategoryValueTranslation].[IsoLanguageId] where [IsoLanguage].[IsDefault]=1 and [CategoryType].[Value]=@Category";
+                sql = sql + " union all " + sql;
+                var command = new SqlCommand();
+                command.CommandText = sql;
+                command.Parameters.Add(new SqlParameter("Category", "Country"));
+                return command;
+            }
+        }
+
         public class CurrencyLookup : DatabaseLookup<string, string>
         {
             private string isoLanguage;
@@ -154,13 +170,24 @@ namespace Lookum.Framework.Testing.Lookup
         }
 
         [Test]
-        public void Load_WrongTypeForPrimitive_ThrowCorrectexception()
+        public void Load_WrongTypeForPrimitive_ThrowCorrectException()
         {
             var countryLookup = new WrongCountryLookup();
             var ex = Assert.Throws<InvalidCastException>(delegate { countryLookup.Load(); });
             Assert.That(ex.Message, Is.StringContaining("Int32"));
             Assert.That(ex.Message, Is.StringContaining("String"));
             Assert.That(ex.Message, Is.StringContaining("value"));
+            Console.WriteLine(ex.Message);
+        }
+
+        [Test]
+        public void Load_DuplicateKey_ThrowCorrectException()
+        {
+            var countryLookup = new DuplicateCountryLookup();
+            var ex = Assert.Throws<InvalidOperationException>(delegate { countryLookup.Load(); });
+            var countries = new [] {"US", "FR", "BE", "NL", "DE"};
+            Assert.That(countries.Any(c => ex.Message.Contains("'" + c + "'")));
+            Assert.That(ex.Message, Is.StringContaining(String.Format("{0} elements.", countries.Length)));
             Console.WriteLine(ex.Message);
         }
     }
