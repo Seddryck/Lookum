@@ -1,10 +1,12 @@
 # Lookum
 Etl components for building Etl solutions with .Net
 
-![project status](http://stillmaintained.com/Seddryck/Lookum.png)
+[![Build status](https://ci.appveyor.com/api/projects/status/ved2u21k9lwixcv3?svg=true)](https://ci.appveyor.com/project/Seddryck/Lookum)
+![Still maintained](https://img.shields.io/maintenance/yes/2017.svg)
+[![licence badge]][licence]
 
 ## Continuous Integration ##
-A continuous integration service is available on AppVeyor at https://ci.appveyor.com/project/CdricLCharlier/Lookum/ 
+A continuous integration service is available on AppVeyor at https://ci.appveyor.com/project/Seddryck/Lookum/ 
 Note that all the tests are not executed on this environment due to limitations in the availability of some components (SSAS).
 
 [![Build status](https://ci.appveyor.com/api/projects/status/ved2u21k9lwixcv3)](https://ci.appveyor.com/project/CdricLCharlier/Lookum)
