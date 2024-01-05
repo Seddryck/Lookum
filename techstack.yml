@@ -1,7 +1,8 @@
 repo_name: Seddryck/Lookum
 report_id: 70fbfe8efa93c6526982d07cee3b9365
+version: 0.1
 repo_type: Public
-timestamp: '2023-11-12T20:21:26+00:00'
+timestamp: '2024-01-05T08:47:52+00:00'
 requested_by: Seddryck
 provider: github
 branch: develop
@@ -17,8 +18,8 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/6755/2c45151a4a11d3a3c8e71bb34dd069d6_400x400.png
-  detection_source_url: Lookum.Framework.Testing/Lookum.Framework.Testing.csproj
-  detection_source: Lookum.Framework/Lookum.Framework.csproj
+  detection_source_url: https://github.com/Seddryck/Lookum/blob/develop/Lookum.Framework.Testing/Lookum.Framework.Testing.csproj
+  detection_source: Lookum.Framework.Testing/Lookum.Framework.Testing.csproj
   last_updated_by: Cedric L. Charlier
   last_updated_on: 2014-09-18 09:46:45.000000000 Z
 - name: C#
@@ -30,6 +31,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/1015/1200px-C_Sharp_wordmark.svg.png
+  detection_source_url: https://github.com/Seddryck/Lookum
   detection_source: Repo Metadata
 - name: SQL
   description: It is a domain-specific language used in programming
@@ -39,7 +41,8 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/2271/default_068d33483bba6b81ee13fbd4dc7aab9780896a54.png
-  detection_source: Lookum.Testing.Database/dbo/Tables/Value.sql
+  detection_source_url: https://github.com/Seddryck/Lookum/blob/develop/Lookum.Testing.Database/PostDeployment.sql
+  detection_source: Lookum.Testing.Database/PostDeployment.sql
   last_updated_by: Cedric L. Charlier
   last_updated_on: 2014-09-18 11:16:51.000000000 Z
 - name: ".NET"
@@ -52,6 +55,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Frameworks (Full Stack)
   image_url: https://img.stackshare.io/service/1014/IoPy1dce_400x400.png
+  detection_source_url: https://github.com/Seddryck/Lookum/blob/develop/Lookum.Framework.Testing/packages.config
   detection_source: Lookum.Framework.Testing/packages.config
   last_updated_by: Cedric L. Charlier
   last_updated_on: 2014-09-18 11:16:51.000000000 Z
@@ -64,7 +68,7 @@ tools:
   category: Data Stores
   sub_category: Databases
   image_url: https://img.stackshare.io/service/1027/sql_server.png
-  detection_source_url: Lookum.Testing.Database/Lookum.Testing.Database.sqlproj
+  detection_source_url: https://github.com/Seddryck/Lookum/blob/develop/Lookum.Testing.Database/Lookum.Testing.Database.sqlproj
   detection_source: Lookum.Testing.Database/Lookum.Testing.Database.sqlproj
   last_updated_by: Cedric L. Charlier
   last_updated_on: 2014-09-18 11:16:51.000000000 Z
@@ -76,6 +80,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Version Control System
   image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/Seddryck/Lookum
   detection_source: Repo Metadata
 - name: NUnit
   description: An open-source unit testing framework
@@ -85,6 +90,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Testing Frameworks
   image_url: https://img.stackshare.io/service/2371/jZ6MYx5Y_400x400.png
+  detection_source_url: https://github.com/Seddryck/Lookum/blob/develop/Lookum.Framework.Testing/packages.config
   detection_source: Lookum.Framework.Testing/packages.config
   last_updated_by: Cedric L. Charlier
   last_updated_on: 2014-09-18 11:16:51.000000000 Z
@@ -96,6 +102,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Package Managers
   image_url: https://img.stackshare.io/service/2637/6I3oEOP4_400x400.jpg
+  detection_source_url: https://github.com/Seddryck/Lookum/blob/develop/Lookum.Framework.Testing/packages.config
   detection_source: Lookum.Framework.Testing/packages.config
   last_updated_by: Cedric L. Charlier
   last_updated_on: 2014-09-18 11:16:51.000000000 Z
@@ -108,6 +115,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Integrated Development Environment
   image_url: https://img.stackshare.io/service/1451/SR2hUhQN.png
+  detection_source_url: https://github.com/Seddryck/Lookum/blob/develop/Lookum.Framework.sln
   detection_source: Lookum.Framework.sln
   last_updated_by: Cedric L. Charlier
   last_updated_on: 2015-07-03 23:25:43.000000000 Z
@@ -119,4 +127,5 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/3681/powershell-logo.png
+  detection_source_url: https://github.com/Seddryck/Lookum
   detection_source: Repo Metadata
